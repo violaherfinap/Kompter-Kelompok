@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #fdf5f6; /* Warna latar belakang lembut */
+            background-color: #fdf5f6;
             color: #333;
             margin: 0;
             padding: 40px 20px;
@@ -23,7 +23,7 @@
         }
         h1 {
             text-align: center;
-            color: #d81b60; /* Warna aksen utama */
+            color: #d81b60;
             border-bottom: 2px solid #f8bbd0;
             padding-bottom: 15px;
             margin-bottom: 30px;
@@ -38,7 +38,7 @@
             border-collapse: collapse;
             margin-top: 10px;
             border-radius: 8px;
-            overflow: hidden; /* Agar sudut tabel melengkung */
+            overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
         th, td {
@@ -54,10 +54,10 @@
             border-bottom: 1px solid #f0f0f0;
         }
         tr:nth-of-type(even) {
-            background-color: #fffafa; /* Efek zebra pada baris tabel */
+            background-color: #fffafa;
         }
         tr:hover {
-            background-color: #fce4ec; /* Efek sorot saat kursor diarahkan */
+            background-color: #fce4ec;
             transition: 0.3s;
         }
     </style>
@@ -93,13 +93,14 @@
     </div>
 
     <script>
+        const BASE_URL = 'http://localhost:3000/api';
+
         async function loadData(endpoint, tableBodyId, columns) {
             try {
-                // Mengambil data dari backend localhost
-                const response = await fetch(`http://localhost:3000/api/${endpoint}`);
+                const response = await fetch(`${BASE_URL}/${endpoint}`);
                 const data = await response.json();
                 const tableBody = document.getElementById(tableBodyId);
-                
+
                 data.forEach(row => {
                     const tr = document.createElement('tr');
                     columns.forEach(col => {
@@ -110,13 +111,13 @@
                     tableBody.appendChild(tr);
                 });
             } catch (error) {
-                console.error('Gagal memuat data:', error);
+                console.error(`Gagal memuat data [${endpoint}]:`, error);
             }
         }
 
-        loadData('mahasiswa', 'tabel-mahasiswa', ['nim', 'nama', 'alamat']);
-        loadData('dosen', 'tabel-dosen', ['nip', 'nama', 'alamat']);
-        loadData('matakuliah', 'tabel-matakuliah', ['kode', 'matkul', 'sks', 'smt']);
+        loadData('mahasiswa',   'tabel-mahasiswa',   ['nim', 'nama', 'alamat']);
+        loadData('dosen',       'tabel-dosen',       ['nip', 'nama', 'alamat']);
+        loadData('matakuliah',  'tabel-matakuliah',  ['kode', 'matkul', 'sks', 'smt']);
         loadData('perkuliahan', 'tabel-perkuliahan', ['id', 'nim', 'nip', 'kode', 'nilai']);
     </script>
 
