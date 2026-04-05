@@ -3,122 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Data Terdistribusi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>SIAKAD — Universitas Gadjah Muda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ugm-blue:       #003366;
+            --ugm-blue-mid:   #0d4a8a;
+            --ugm-blue-light: #e8f0fb;
+            --ugm-gold:       #c9a84c;
+            --ugm-gold-light: #f5edda;
+            --text-primary:   #1a1a2e;
+            --text-secondary: #5a6a85;
+            --border:         #dde4ef;
+            --surface:        #ffffff;
+            --bg:             #f4f6fb;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fdf5f6;
-            color: #333;
-            margin: 0;
-            padding: 40px 20px;
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
         }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            background: #ffffff;
-            padding: 30px 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+        /* ─── HEADER ─── */
+        header {
+            background: var(--ugm-blue);
+            border-bottom: 3px solid var(--ugm-gold);
+            padding: 0 48px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            height: 88px;
         }
-        h1 {
-            text-align: center;
-            color: #d81b60;
-            border-bottom: 2px solid #f8bbd0;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
+
+        .header-logo {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
         }
-        h2 {
-            color: #ad1457;
-            margin-top: 40px;
-            font-size: 1.2rem;
+
+        .header-divider {
+            width: 1px;
+            height: 40px;
+            background: rgba(201,168,76,0.4);
         }
+
+        .header-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.01em;
+            line-height: 1.2;
+        }
+
+        .header-text p {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.55);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .header-badge {
+            margin-left: auto;
+            background: rgba(201,168,76,0.15);
+            border: 1px solid rgba(201,168,76,0.35);
+            color: var(--ugm-gold);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 4px;
+        }
+
+        /* ─── PAGE TITLE BAND ─── */
+        .page-title-band {
+            background: var(--ugm-blue-light);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 48px;
+        }
+
+        .page-title-band h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--ugm-blue);
+        }
+
+        .page-title-band p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* ─── MAIN CONTENT ─── */
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        /* ─── SECTION ─── */
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,30,80,0.05);
+            animation: fadeUp 0.4s ease both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.05s; }
+        .section:nth-child(2) { animation-delay: 0.10s; }
+        .section:nth-child(3) { animation-delay: 0.15s; }
+        .section:nth-child(4) { animation-delay: 0.20s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+            background: #fafbfe;
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--ugm-blue-light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .section-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--ugm-blue-mid);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--ugm-blue);
+            letter-spacing: 0.02em;
+        }
+
+        .section-count {
+            margin-left: auto;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        /* ─── TABLE ─── */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
-        th, td {
-            padding: 15px;
-            text-align: left;
+
+        thead tr {
+            background: var(--ugm-blue);
         }
+
         th {
-            background-color: #f8bbd0;
-            color: #880e4f;
-            font-weight: 600;
+            padding: 11px 20px;
+            text-align: left;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.75);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
-        tr {
-            border-bottom: 1px solid #f0f0f0;
+
+        td {
+            padding: 13px 20px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border);
         }
-        tr:nth-of-type(even) {
-            background-color: #fffafa;
+
+        tbody tr:last-child td {
+            border-bottom: none;
         }
-        tr:hover {
-            background-color: #fce4ec;
-            transition: 0.3s;
+
+        tbody tr:nth-child(even) {
+            background: var(--ugm-blue-light);
+        }
+
+        tbody tr:hover {
+            background: var(--ugm-gold-light);
+            transition: background 0.18s ease;
+        }
+
+        /* Loading & Error state */
+        .state-row td {
+            text-align: center;
+            padding: 28px;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            letter-spacing: 0.02em;
+        }
+
+        .state-row.error td {
+            color: #c0392b;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 32px 48px;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            border-top: 1px solid var(--border);
+            margin-top: 8px;
+            letter-spacing: 0.03em;
+        }
+
+        footer span {
+            color: var(--ugm-blue);
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Tugas Komputer Terdistribusi Individu</h1>
+    <header>
+        <!-- UGM Seal SVG placeholder (simple geometric) -->
+        <svg class="header-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="26" cy="26" r="24" stroke="#c9a84c" stroke-width="1.5"/>
+            <circle cx="26" cy="26" r="18" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+            <text x="26" y="30" text-anchor="middle" font-size="11" font-weight="700"
+                  fill="#c9a84c" font-family="serif" letter-spacing="1">UGM</text>
+        </svg>
 
-        <h2>Tabel Mahasiswa</h2>
-        <table>
-            <thead><tr><th>NIM</th><th>Nama</th><th>Alamat</th></tr></thead>
-            <tbody id="tabel-mahasiswa"></tbody>
-        </table>
+        <div class="header-divider"></div>
 
-        <h2>Tabel Dosen</h2>
-        <table>
-            <thead><tr><th>NIP</th><th>Nama</th><th>Alamat</th></tr></thead>
-            <tbody id="tabel-dosen"></tbody>
-        </table>
+        <div class="header-text">
+            <h1>Universitas Gadjah Muda</h1>
+            <p>Sistem Informasi Akademik</p>
+        </div>
 
-        <h2>Tabel Mata Kuliah</h2>
-        <table>
-            <thead><tr><th>Kode</th><th>Mata Kuliah</th><th>SKS</th><th>Semester</th></tr></thead>
-            <tbody id="tabel-matakuliah"></tbody>
-        </table>
+        <div class="header-badge">Tahun Akademik 2025/2026</div>
+    </header>
 
-        <h2>Tabel Perkuliahan</h2>
-        <table>
-            <thead><tr><th>ID</th><th>NIM</th><th>NIP</th><th>Kode MK</th><th>Nilai</th></tr></thead>
-            <tbody id="tabel-perkuliahan"></tbody>
-        </table>
+    <div class="page-title-band">
+        <h2>Data Akademik Mahasiswa</h2>
+        <p>Tugas Komputasi Terdistribusi - Kelompok 1</p>
     </div>
+
+    <main>
+
+        <!-- Tabel Mahasiswa -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <span class="section-title">Data Mahasiswa</span>
+                <span class="section-count" id="count-mahasiswa">Memuat...</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>NIM</th><th>Nama Lengkap</th><th>Alamat</th></tr>
+                    </thead>
+                    <tbody id="tabel-mahasiswa">
+                        <tr class="state-row"><td colspan="3">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tabel Dosen -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <span class="section-title">Data Dosen</span>
+                <span class="section-count" id="count-dosen">Memuat...</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>NIP</th><th>Nama Lengkap</th><th>Alamat</th></tr>
+                    </thead>
+                    <tbody id="tabel-dosen">
+                        <tr class="state-row"><td colspan="3">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tabel Mata Kuliah -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <span class="section-title">Data Mata Kuliah</span>
+                <span class="section-count" id="count-matakuliah">Memuat...</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Kode MK</th><th>Nama Mata Kuliah</th><th>SKS</th><th>Semester</th></tr>
+                    </thead>
+                    <tbody id="tabel-matakuliah">
+                        <tr class="state-row"><td colspan="4">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tabel Perkuliahan -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <span class="section-title">Data Perkuliahan</span>
+                <span class="section-count" id="count-perkuliahan">Memuat...</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>NIM</th><th>NIP</th><th>Kode MK</th><th>Nilai</th></tr>
+                    </thead>
+                    <tbody id="tabel-perkuliahan">
+                        <tr class="state-row"><td colspan="5">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        Sistem Informasi Akademik &mdash; <span>Universitas Gadjah Muda</span>
+    </footer>
 
     <script>
         const BASE_URL = 'http://localhost:3000/api';
 
-        async function loadData(endpoint, tableBodyId, columns) {
+        async function loadData(endpoint, tableBodyId, columns, countId) {
+            const tableBody = document.getElementById(tableBodyId);
+            const countEl   = document.getElementById(countId);
+
             try {
                 const response = await fetch(`${BASE_URL}/${endpoint}`);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
-                const tableBody = document.getElementById(tableBodyId);
+
+                tableBody.innerHTML = '';
+
+                if (data.length === 0) {
+                    tableBody.innerHTML = `<tr class="state-row"><td colspan="${columns.length}">Tidak ada data tersedia.</td></tr>`;
+                    countEl.textContent = '0 data';
+                    return;
+                }
 
                 data.forEach(row => {
                     const tr = document.createElement('tr');
                     columns.forEach(col => {
                         const td = document.createElement('td');
-                        td.textContent = row[col];
+                        td.textContent = row[col] ?? '-';
                         tr.appendChild(td);
                     });
                     tableBody.appendChild(tr);
                 });
+
+                countEl.textContent = `${data.length} data`;
             } catch (error) {
-                console.error(`Gagal memuat data [${endpoint}]:`, error);
+                tableBody.innerHTML = `<tr class="state-row error"><td colspan="${columns.length}">Gagal memuat data. Pastikan server berjalan.</td></tr>`;
+                countEl.textContent = 'Gagal';
+                console.error(`[${endpoint}]`, error);
             }
         }
 
-        loadData('mahasiswa',   'tabel-mahasiswa',   ['nim', 'nama', 'alamat']);
-        loadData('dosen',       'tabel-dosen',       ['nip', 'nama', 'alamat']);
-        loadData('matakuliah',  'tabel-matakuliah',  ['kode', 'matkul', 'sks', 'smt']);
-        loadData('perkuliahan', 'tabel-perkuliahan', ['id', 'nim', 'nip', 'kode', 'nilai']);
+        loadData('mahasiswa',   'tabel-mahasiswa',   ['nim', 'nama', 'alamat'],             'count-mahasiswa');
+        loadData('dosen',       'tabel-dosen',       ['nip', 'nama', 'alamat'],             'count-dosen');
+        loadData('matakuliah',  'tabel-matakuliah',  ['kode', 'matkul', 'sks', 'smt'],      'count-matakuliah');
+        loadData('perkuliahan', 'tabel-perkuliahan', ['id', 'nim', 'nip', 'kode', 'nilai'], 'count-perkuliahan');
     </script>
 
 </body>
