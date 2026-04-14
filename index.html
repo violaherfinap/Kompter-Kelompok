@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIAKAD — Universitas Gadjah Muda</title>
+    <title>SIAKAD — Universitas Gadjah Mada</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -17,6 +17,12 @@
             --border:         #dde4ef;
             --surface:        #ffffff;
             --bg:             #f4f6fb;
+            --red:            #c0392b;
+            --red-light:      #fdf0ef;
+            --red-mid:        #e74c3c;
+            --orange:         #d35400;
+            --orange-light:   #fef3ec;
+            --green:          #1a7a4a;
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,53 +39,29 @@
             background: var(--ugm-blue);
             border-bottom: 3px solid var(--ugm-gold);
             padding: 0 48px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
+            display: flex; align-items: center; gap: 24px;
             height: 88px;
         }
-
-        .header-logo {
-            width: 52px;
-            height: 52px;
-            flex-shrink: 0;
-        }
-
-        .header-divider {
-            width: 1px;
-            height: 40px;
-            background: rgba(201,168,76,0.4);
-        }
-
+        .header-logo { width: 52px; height: 52px; flex-shrink: 0; }
+        .header-divider { width: 1px; height: 40px; background: rgba(201,168,76,0.4); }
         .header-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 0.01em;
-            line-height: 1.2;
+            font-size: 1.1rem; font-weight: 700;
+            color: #ffffff; letter-spacing: 0.01em; line-height: 1.2;
         }
-
         .header-text p {
-            font-size: 0.72rem;
-            color: rgba(255,255,255,0.55);
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-top: 2px;
+            font-size: 0.72rem; color: rgba(255,255,255,0.55);
+            font-weight: 300; letter-spacing: 0.08em;
+            text-transform: uppercase; margin-top: 2px;
         }
-
         .header-badge {
             margin-left: auto;
             background: rgba(201,168,76,0.15);
             border: 1px solid rgba(201,168,76,0.35);
             color: var(--ugm-gold);
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 5px 14px;
-            border-radius: 4px;
+            font-size: 0.7rem; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 5px 14px; border-radius: 4px;
         }
 
         /* ─── PAGE TITLE BAND ─── */
@@ -88,202 +70,348 @@
             border-bottom: 1px solid var(--border);
             padding: 20px 48px;
         }
-
         .page-title-band h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--ugm-blue);
+            font-size: 1.35rem; font-weight: 600; color: var(--ugm-blue);
         }
+        .page-title-band p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; }
 
-        .page-title-band p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-
-        /* ─── MAIN CONTENT ─── */
+        /* ─── MAIN ─── */
         main {
-            max-width: 1100px;
-            margin: 40px auto;
+            max-width: 1100px; margin: 40px auto;
             padding: 0 48px;
-            display: flex;
-            flex-direction: column;
-            gap: 36px;
+            display: flex; flex-direction: column; gap: 36px;
         }
 
         /* ─── SECTION ─── */
         .section {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
+            border-radius: 8px; overflow: hidden;
             box-shadow: 0 2px 12px rgba(0,30,80,0.05);
             animation: fadeUp 0.4s ease both;
         }
-
         .section:nth-child(1) { animation-delay: 0.05s; }
         .section:nth-child(2) { animation-delay: 0.10s; }
         .section:nth-child(3) { animation-delay: 0.15s; }
         .section:nth-child(4) { animation-delay: 0.20s; }
-
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(12px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
         .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 24px;
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 20px;
             border-bottom: 1px solid var(--border);
             background: #fafbfe;
         }
-
         .section-icon {
-            width: 32px;
-            height: 32px;
+            width: 32px; height: 32px;
             background: var(--ugm-blue-light);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            border: 1px solid var(--border); border-radius: 6px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
         }
-
         .section-icon svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--ugm-blue-mid);
-            fill: none;
-            stroke-width: 1.8;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            width: 16px; height: 16px;
+            stroke: var(--ugm-blue-mid); fill: none;
+            stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
         }
-
-        .section-title {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--ugm-blue);
-            letter-spacing: 0.02em;
-        }
-
+        .section-title { font-size: 0.875rem; font-weight: 500; color: var(--ugm-blue); letter-spacing: 0.02em; }
         .section-count {
-            margin-left: auto;
-            font-size: 0.72rem;
-            color: var(--text-secondary);
-            background: var(--bg);
-            border: 1px solid var(--border);
-            padding: 2px 10px;
-            border-radius: 20px;
+            font-size: 0.72rem; color: var(--text-secondary);
+            background: var(--bg); border: 1px solid var(--border);
+            padding: 2px 10px; border-radius: 20px;
         }
+        .btn-add {
+            margin-left: auto;
+            display: flex; align-items: center; gap: 6px;
+            background: var(--ugm-blue); color: #fff;
+            border: none; border-radius: 5px;
+            padding: 7px 14px;
+            font-size: 0.78rem; font-family: 'DM Sans', sans-serif; font-weight: 500;
+            cursor: pointer; transition: background 0.18s;
+        }
+        .btn-add:hover { background: var(--ugm-blue-mid); }
+        .btn-add svg { width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; }
 
         /* ─── TABLE ─── */
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead tr {
-            background: var(--ugm-blue);
-        }
-
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        thead tr { background: var(--ugm-blue); }
         th {
-            padding: 11px 20px;
-            text-align: left;
-            font-size: 0.72rem;
-            font-weight: 500;
+            padding: 11px 16px; text-align: left;
+            font-size: 0.72rem; font-weight: 500;
             color: rgba(255,255,255,0.75);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            white-space: nowrap;
+            letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
         }
+        th.col-actions { width: 100px; text-align: center; }
+        td { padding: 12px 16px; font-size: 0.85rem; color: var(--text-primary); border-bottom: 1px solid var(--border); }
+        tbody tr:last-child td { border-bottom: none; }
+        tbody tr:nth-child(even) { background: var(--ugm-blue-light); }
+        tbody tr:hover { background: var(--ugm-gold-light); transition: background 0.18s ease; }
+        td.col-actions { text-align: center; white-space: nowrap; }
 
-        td {
-            padding: 13px 20px;
-            font-size: 0.85rem;
-            color: var(--text-primary);
-            border-bottom: 1px solid var(--border);
+        .btn-edit, .btn-delete {
+            border: none; border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 0.75rem; font-family: 'DM Sans', sans-serif; font-weight: 500;
+            cursor: pointer; transition: opacity 0.15s;
         }
+        .btn-edit   { background: var(--ugm-blue-light); color: var(--ugm-blue-mid); margin-right: 4px; }
+        .btn-delete { background: var(--red-light); color: var(--red); }
+        .btn-edit:hover, .btn-delete:hover { opacity: 0.7; }
 
-        tbody tr:last-child td {
-            border-bottom: none;
+        .state-row td { text-align: center; padding: 28px; color: var(--text-secondary); font-size: 0.82rem; }
+        .state-row.error td { color: var(--red); }
+
+        /* ─── TOAST ─── */
+        #toast {
+            position: fixed; bottom: 32px; right: 32px;
+            padding: 12px 20px; border-radius: 6px;
+            font-size: 0.82rem; font-weight: 500; color: #fff;
+            opacity: 0; transform: translateY(10px);
+            transition: all 0.25s ease;
+            pointer-events: none; z-index: 999;
         }
+        #toast.show { opacity: 1; transform: translateY(0); }
+        #toast.success { background: var(--green); }
+        #toast.error   { background: var(--red); }
 
-        tbody tr:nth-child(even) {
-            background: var(--ugm-blue-light);
+        /* ─── MODAL TAMBAH/EDIT ─── */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,20,60,0.45);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.2s;
         }
-
-        tbody tr:hover {
-            background: var(--ugm-gold-light);
-            transition: background 0.18s ease;
+        .modal-overlay.open { opacity: 1; pointer-events: all; }
+        .modal {
+            background: var(--surface); border-radius: 10px;
+            width: 100%; max-width: 480px;
+            box-shadow: 0 24px 64px rgba(0,20,60,0.18);
+            transform: translateY(16px) scale(0.98);
+            transition: transform 0.22s ease; overflow: hidden;
         }
-
-        /* Loading & Error state */
-        .state-row td {
-            text-align: center;
-            padding: 28px;
+        .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+        .modal-header {
+            background: var(--ugm-blue); padding: 18px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .modal-header h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #fff; font-weight: 600; }
+        .modal-close {
+            background: none; border: none;
+            color: rgba(255,255,255,0.6); cursor: pointer;
+            font-size: 1.3rem; line-height: 1; padding: 2px 6px;
+            border-radius: 4px; transition: color 0.15s;
+        }
+        .modal-close:hover { color: #fff; }
+        .modal-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group label {
+            font-size: 0.75rem; font-weight: 500;
             color: var(--text-secondary);
-            font-size: 0.82rem;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.05em; text-transform: uppercase;
+        }
+        .form-group input,
+        .form-group select {
+            border: 1px solid var(--border); border-radius: 5px;
+            padding: 9px 12px;
+            font-size: 0.875rem; font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary); background: var(--bg);
+            transition: border-color 0.15s; outline: none; width: 100%;
+        }
+        .form-group select {
+            cursor: pointer; appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a6a85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px;
+        }
+        .form-group input:focus,
+        .form-group select:focus { border-color: var(--ugm-blue-mid); background: #fff; }
+        .form-group input:disabled,
+        .form-group select:disabled { opacity: 0.45; cursor: not-allowed; }
+        .modal-footer {
+            padding: 16px 24px; border-top: 1px solid var(--border);
+            display: flex; justify-content: flex-end; gap: 10px; background: #fafbfe;
+        }
+        .btn-cancel {
+            background: none; border: 1px solid var(--border); border-radius: 5px;
+            padding: 8px 18px; font-size: 0.82rem;
+            font-family: 'DM Sans', sans-serif; color: var(--text-secondary);
+            cursor: pointer; transition: background 0.15s;
+        }
+        .btn-cancel:hover { background: var(--bg); }
+        .btn-submit {
+            background: var(--ugm-blue); border: none; border-radius: 5px;
+            padding: 8px 20px; font-size: 0.82rem;
+            font-family: 'DM Sans', sans-serif; font-weight: 500; color: #fff;
+            cursor: pointer; transition: background 0.15s;
+        }
+        .btn-submit:hover { background: var(--ugm-blue-mid); }
+
+        /* ─── CONFIRM DELETE ─── */
+        .confirm-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,20,60,0.45);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.18s;
+        }
+        .confirm-overlay.open { opacity: 1; pointer-events: all; }
+        .confirm-box {
+            background: var(--surface); border-radius: 10px; width: 360px;
+            box-shadow: 0 16px 48px rgba(0,20,60,0.18);
+            transform: scale(0.96); transition: transform 0.18s; overflow: hidden;
+        }
+        .confirm-overlay.open .confirm-box { transform: scale(1); }
+        .confirm-box-header {
+            padding: 20px 24px 0;
+            display: flex; align-items: flex-start; gap: 16px;
+        }
+        .confirm-icon-wrap {
+            width: 40px; height: 40px; flex-shrink: 0;
+            background: var(--red-light); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .confirm-icon-wrap svg {
+            width: 20px; height: 20px;
+            stroke: var(--red); fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .confirm-text h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+        .confirm-text p  { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
+        .confirm-actions {
+            display: flex; justify-content: flex-end; gap: 10px;
+            padding: 20px 24px; margin-top: 4px;
+        }
+        .btn-confirm-delete {
+            background: var(--red); border: none; border-radius: 5px;
+            padding: 8px 18px; font-size: 0.82rem;
+            font-family: 'DM Sans', sans-serif; font-weight: 500; color: #fff;
+            cursor: pointer; transition: background 0.15s;
+        }
+        .btn-confirm-delete:hover { background: var(--red-mid); }
+
+        /* ─── FK ERROR DIALOG ─── */
+        .fk-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,20,60,0.5);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 300; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+        }
+        .fk-overlay.open { opacity: 1; pointer-events: all; }
+
+        .fk-dialog {
+            background: var(--surface);
+            border-radius: 12px;
+            width: 100%; max-width: 420px;
+            box-shadow: 0 32px 80px rgba(0,20,60,0.22);
+            transform: scale(0.94) translateY(12px);
+            transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
+            overflow: hidden;
+        }
+        .fk-overlay.open .fk-dialog {
+            transform: scale(1) translateY(0);
         }
 
-        .state-row.error td {
-            color: #c0392b;
+        /* Strip merah di atas */
+        .fk-dialog-strip {
+            height: 5px;
+            background: linear-gradient(90deg, var(--red) 0%, var(--red-mid) 100%);
         }
 
-        /* ─── FOOTER ─── */
+        .fk-dialog-body {
+            padding: 28px 28px 12px;
+            display: flex; gap: 18px; align-items: flex-start;
+        }
+
+        /* Ikon peringatan */
+        .fk-icon {
+            width: 48px; height: 48px; flex-shrink: 0;
+            background: var(--red-light);
+            border: 1.5px solid #f5c6c6;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .fk-icon svg {
+            width: 26px; height: 26px;
+            stroke: var(--red); fill: none;
+            stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+        }
+
+        .fk-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem; font-weight: 700;
+            color: var(--red); margin-bottom: 8px;
+        }
+        .fk-content p {
+            font-size: 0.85rem; color: var(--text-primary);
+            line-height: 1.65; margin-bottom: 6px;
+        }
+
+        /* Kotak petunjuk solusi */
+        .fk-hint {
+            margin: 0 28px 24px;
+            background: var(--orange-light);
+            border: 1px solid #f5cba7;
+            border-left: 3px solid var(--orange);
+            border-radius: 6px;
+            padding: 12px 14px;
+            display: flex; gap: 10px; align-items: flex-start;
+        }
+        .fk-hint svg {
+            width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px;
+            stroke: var(--orange); fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .fk-hint span {
+            font-size: 0.8rem; color: var(--orange); line-height: 1.55;
+        }
+
+        .fk-footer {
+            padding: 14px 28px 22px;
+            display: flex; justify-content: flex-end;
+        }
+        .btn-fk-close {
+            background: var(--ugm-blue); border: none; border-radius: 6px;
+            padding: 9px 24px; font-size: 0.82rem;
+            font-family: 'DM Sans', sans-serif; font-weight: 500; color: #fff;
+            cursor: pointer; transition: background 0.15s;
+        }
+        .btn-fk-close:hover { background: var(--ugm-blue-mid); }
+
         footer {
-            text-align: center;
-            padding: 32px 48px;
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            border-top: 1px solid var(--border);
-            margin-top: 8px;
-            letter-spacing: 0.03em;
+            text-align: center; padding: 32px 48px;
+            color: var(--text-secondary); font-size: 0.75rem;
+            border-top: 1px solid var(--border); margin-top: 8px; letter-spacing: 0.03em;
         }
-
-        footer span {
-            color: var(--ugm-blue);
-            font-weight: 500;
-        }
+        footer span { color: var(--ugm-blue); font-weight: 500; }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- UGM Seal SVG placeholder (simple geometric) -->
         <svg class="header-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="26" cy="26" r="24" stroke="#c9a84c" stroke-width="1.5"/>
             <circle cx="26" cy="26" r="18" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
             <text x="26" y="30" text-anchor="middle" font-size="11" font-weight="700"
                   fill="#c9a84c" font-family="serif" letter-spacing="1">UGM</text>
         </svg>
-
         <div class="header-divider"></div>
-
         <div class="header-text">
-            <h1>Universitas Gadjah Muda</h1>
+            <h1>Universitas Gadjah Mada</h1>
             <p>Sistem Informasi Akademik</p>
         </div>
-
-        <div class="header-badge">Tahun Akademik 2025/2026</div>
+        <div class="header-badge">Tahun Akademik 2024/2025</div>
     </header>
 
     <div class="page-title-band">
         <h2>Data Akademik Mahasiswa</h2>
-        <p>Tugas Komputasi Terdistribusi - Kelompok 1</p>
+        <p>Menampilkan rekap data dari basis data terdistribusi — hanya untuk keperluan akademik internal</p>
     </div>
 
     <main>
 
-        <!-- Tabel Mahasiswa -->
+        <!-- Mahasiswa -->
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">
@@ -291,20 +419,20 @@
                 </div>
                 <span class="section-title">Data Mahasiswa</span>
                 <span class="section-count" id="count-mahasiswa">Memuat...</span>
+                <button class="btn-add" onclick="openAdd('mahasiswa')">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    Tambah
+                </button>
             </div>
             <div class="table-wrapper">
                 <table>
-                    <thead>
-                        <tr><th>NIM</th><th>Nama Lengkap</th><th>Alamat</th></tr>
-                    </thead>
-                    <tbody id="tabel-mahasiswa">
-                        <tr class="state-row"><td colspan="3">Memuat data...</td></tr>
-                    </tbody>
+                    <thead><tr><th>NIM</th><th>Nama Lengkap</th><th>Alamat</th><th class="col-actions">Aksi</th></tr></thead>
+                    <tbody id="tabel-mahasiswa"><tr class="state-row"><td colspan="4">Memuat data...</td></tr></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Tabel Dosen -->
+        <!-- Dosen -->
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">
@@ -312,20 +440,20 @@
                 </div>
                 <span class="section-title">Data Dosen</span>
                 <span class="section-count" id="count-dosen">Memuat...</span>
+                <button class="btn-add" onclick="openAdd('dosen')">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    Tambah
+                </button>
             </div>
             <div class="table-wrapper">
                 <table>
-                    <thead>
-                        <tr><th>NIP</th><th>Nama Lengkap</th><th>Alamat</th></tr>
-                    </thead>
-                    <tbody id="tabel-dosen">
-                        <tr class="state-row"><td colspan="3">Memuat data...</td></tr>
-                    </tbody>
+                    <thead><tr><th>NIP</th><th>Nama Lengkap</th><th>Alamat</th><th class="col-actions">Aksi</th></tr></thead>
+                    <tbody id="tabel-dosen"><tr class="state-row"><td colspan="4">Memuat data...</td></tr></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Tabel Mata Kuliah -->
+        <!-- Mata Kuliah -->
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">
@@ -333,36 +461,36 @@
                 </div>
                 <span class="section-title">Data Mata Kuliah</span>
                 <span class="section-count" id="count-matakuliah">Memuat...</span>
+                <button class="btn-add" onclick="openAdd('matakuliah')">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    Tambah
+                </button>
             </div>
             <div class="table-wrapper">
                 <table>
-                    <thead>
-                        <tr><th>Kode MK</th><th>Nama Mata Kuliah</th><th>SKS</th><th>Semester</th></tr>
-                    </thead>
-                    <tbody id="tabel-matakuliah">
-                        <tr class="state-row"><td colspan="4">Memuat data...</td></tr>
-                    </tbody>
+                    <thead><tr><th>Kode MK</th><th>Nama Mata Kuliah</th><th>SKS</th><th>Semester</th><th class="col-actions">Aksi</th></tr></thead>
+                    <tbody id="tabel-matakuliah"><tr class="state-row"><td colspan="5">Memuat data...</td></tr></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Tabel Perkuliahan -->
+        <!-- Perkuliahan -->
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">
-                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                 </div>
                 <span class="section-title">Data Perkuliahan</span>
                 <span class="section-count" id="count-perkuliahan">Memuat...</span>
+                <button class="btn-add" onclick="openAdd('perkuliahan')">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    Tambah
+                </button>
             </div>
             <div class="table-wrapper">
                 <table>
-                    <thead>
-                        <tr><th>ID</th><th>NIM</th><th>NIP</th><th>Kode MK</th><th>Nilai</th></tr>
-                    </thead>
-                    <tbody id="tabel-perkuliahan">
-                        <tr class="state-row"><td colspan="5">Memuat data...</td></tr>
-                    </tbody>
+                    <thead><tr><th>ID</th><th>NIM</th><th>NIP</th><th>Kode MK</th><th>Nilai</th><th class="col-actions">Aksi</th></tr></thead>
+                    <tbody id="tabel-perkuliahan"><tr class="state-row"><td colspan="6">Memuat data...</td></tr></tbody>
                 </table>
             </div>
         </div>
@@ -370,51 +498,386 @@
     </main>
 
     <footer>
-        Sistem Informasi Akademik &mdash; <span>Universitas Gadjah Muda</span>
+        Sistem Informasi Akademik &mdash; <span>Universitas Gadjah Mada</span> &mdash; Data bersifat rahasia dan hanya digunakan untuk keperluan internal
     </footer>
 
-    <script>
-        const BASE_URL = 'http://anin:3000/api';
+    <!-- Modal Tambah/Edit -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Tambah Data</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal()">Batal</button>
+                <button class="btn-submit" onclick="submitForm()">Simpan</button>
+            </div>
+        </div>
+    </div>
 
-        async function loadData(endpoint, tableBodyId, columns, countId) {
-            const tableBody = document.getElementById(tableBodyId);
-            const countEl   = document.getElementById(countId);
+    <!-- Confirm Delete -->
+    <div class="confirm-overlay" id="confirm-overlay">
+        <div class="confirm-box">
+            <div class="confirm-box-header">
+                <div class="confirm-icon-wrap">
+                    <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                </div>
+                <div class="confirm-text">
+                    <h4>Hapus Data</h4>
+                    <p>Tindakan ini tidak dapat dibatalkan. Yakin ingin menghapus data ini?</p>
+                </div>
+            </div>
+            <div class="confirm-actions">
+                <button class="btn-cancel" onclick="closeConfirm()">Batal</button>
+                <button class="btn-confirm-delete" id="btn-confirm-delete">Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FK Error Dialog -->
+    <div class="fk-overlay" id="fk-overlay">
+        <div class="fk-dialog">
+            <div class="fk-dialog-strip"></div>
+            <div class="fk-dialog-body">
+                <div class="fk-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div class="fk-content">
+                    <h3>Tidak Dapat Dihapus</h3>
+                    <p id="fk-message"></p>
+                </div>
+            </div>
+            <div class="fk-hint">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <span id="fk-hint-text"></span>
+            </div>
+            <div class="fk-footer">
+                <button class="btn-fk-close" onclick="closeFKDialog()">Mengerti</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script>
+        const BASE_URL = 'http://localhost:3000/api';
+
+        const tableFields = {
+            mahasiswa: [
+                { key: 'nim',    label: 'NIM',          pk: true,  type: 'text' },
+                { key: 'nama',   label: 'Nama Lengkap', pk: false, type: 'text' },
+                { key: 'alamat', label: 'Alamat',        pk: false, type: 'text' },
+            ],
+            dosen: [
+                { key: 'nip',    label: 'NIP',          pk: true,  type: 'text' },
+                { key: 'nama',   label: 'Nama Lengkap', pk: false, type: 'text' },
+                { key: 'alamat', label: 'Alamat',        pk: false, type: 'text' },
+            ],
+            matakuliah: [
+                { key: 'kode',   label: 'Kode MK',          pk: true,  type: 'text' },
+                { key: 'matkul', label: 'Nama Mata Kuliah',  pk: false, type: 'text' },
+                { key: 'sks',    label: 'SKS',               pk: false, type: 'text' },
+                { key: 'smt',    label: 'Semester',          pk: false, type: 'text' },
+            ],
+            perkuliahan: [
+                { key: 'id',    label: 'ID',      pk: true,  type: 'auto' },
+                { key: 'nim',   label: 'NIM',     pk: false, type: 'dropdown',
+                  source: 'mahasiswa', displayFn: r => `${r.nim} — ${r.nama}` },
+                { key: 'nip',   label: 'NIP',     pk: false, type: 'dropdown',
+                  source: 'dosen',     displayFn: r => `${r.nip} — ${r.nama}` },
+                { key: 'kode',  label: 'Kode MK', pk: false, type: 'dropdown',
+                  source: 'matakuliah', displayFn: r => `${r.kode} — ${r.matkul}` },
+                { key: 'nilai', label: 'Nilai',   pk: false, type: 'dropdown',
+                  options: ['A', 'A-', 'B', 'B-', 'C', 'E'] },
+            ],
+        };
+
+        const fkDialogContent = {
+            nim:  {
+                message:  'Mahasiswa ini tidak dapat dihapus karena masih memiliki catatan perkuliahan yang terhubung.',
+                hint:     'Hapus terlebih dahulu semua data perkuliahan yang menggunakan NIM mahasiswa ini.'
+            },
+            nip:  {
+                message:  'Dosen ini tidak dapat dihapus karena masih tercatat sebagai pengampu dalam data perkuliahan.',
+                hint:     'Hapus terlebih dahulu semua data perkuliahan yang menggunakan NIP dosen ini.'
+            },
+            kode: {
+                message:  'Mata kuliah ini tidak dapat dihapus karena masih digunakan dalam data perkuliahan.',
+                hint:     'Hapus terlebih dahulu semua data perkuliahan yang menggunakan kode mata kuliah ini.'
+            },
+            default: {
+                message:  'Data ini tidak dapat dihapus karena masih dirujuk oleh tabel lain dalam database.',
+                hint:     'Pastikan semua data yang berelasi sudah dihapus terlebih dahulu.'
+            }
+        };
+
+        let modalEndpoint = null;
+        let modalMode     = null;
+        let modalPkValue  = null;
+
+        // ─── LOAD TABLE ───
+        async function loadData(endpoint) {
+            const fields   = tableFields[endpoint];
+            const colCount = fields.length + 1;
+            const tbody    = document.getElementById(`tabel-${endpoint}`);
+            const countEl  = document.getElementById(`count-${endpoint}`);
+
+            tbody.innerHTML = `<tr class="state-row"><td colspan="${colCount}">Memuat data...</td></tr>`;
 
             try {
-                const response = await fetch(`${BASE_URL}/${endpoint}`);
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                const data = await response.json();
+                const res  = await fetch(`${BASE_URL}/${endpoint}`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
 
-                tableBody.innerHTML = '';
+                tbody.innerHTML = '';
 
                 if (data.length === 0) {
-                    tableBody.innerHTML = `<tr class="state-row"><td colspan="${columns.length}">Tidak ada data tersedia.</td></tr>`;
+                    tbody.innerHTML = `<tr class="state-row"><td colspan="${colCount}">Tidak ada data tersedia.</td></tr>`;
                     countEl.textContent = '0 data';
                     return;
                 }
 
+                const pkKey = fields.find(f => f.pk).key;
                 data.forEach(row => {
-                    const tr = document.createElement('tr');
-                    columns.forEach(col => {
+                    const tr    = document.createElement('tr');
+                    fields.forEach(f => {
                         const td = document.createElement('td');
-                        td.textContent = row[col] ?? '-';
+                        td.textContent = row[f.key] ?? '-';
                         tr.appendChild(td);
                     });
-                    tableBody.appendChild(tr);
+                    const tdAct  = document.createElement('td');
+                    tdAct.className = 'col-actions';
+                    const pkVal  = String(row[pkKey]).replace(/'/g, "\\'");
+                    tdAct.innerHTML = `
+                        <button class="btn-edit"   onclick="openEdit('${endpoint}', '${pkVal}')">Edit</button>
+                        <button class="btn-delete" onclick="confirmDelete('${endpoint}', '${pkVal}')">Hapus</button>
+                    `;
+                    tr.appendChild(tdAct);
+                    tbody.appendChild(tr);
                 });
 
                 countEl.textContent = `${data.length} data`;
-            } catch (error) {
-                tableBody.innerHTML = `<tr class="state-row error"><td colspan="${columns.length}">Gagal memuat data. Pastikan server berjalan.</td></tr>`;
+            } catch (err) {
+                tbody.innerHTML = `<tr class="state-row error"><td colspan="${colCount}">Gagal memuat data. Pastikan server berjalan.</td></tr>`;
                 countEl.textContent = 'Gagal';
-                console.error(`[${endpoint}]`, error);
             }
         }
 
-        loadData('mahasiswa',   'tabel-mahasiswa',   ['nim', 'nama', 'alamat'],             'count-mahasiswa');
-        loadData('dosen',       'tabel-dosen',       ['nip', 'nama', 'alamat'],             'count-dosen');
-        loadData('matakuliah',  'tabel-matakuliah',  ['kode', 'matkul', 'sks', 'smt'],      'count-matakuliah');
-        loadData('perkuliahan', 'tabel-perkuliahan', ['id', 'nim', 'nip', 'kode', 'nilai'], 'count-perkuliahan');
+        // ─── BUILD FORM ───
+        async function buildFormHTML(endpoint, rowData, mode) {
+            const fields = tableFields[endpoint];
+            const parts  = [];
+
+            for (const f of fields) {
+                const currentVal = rowData ? (rowData[f.key] ?? '') : '';
+
+                if (f.type === 'auto') {
+                    let autoVal = currentVal;
+                    if (mode === 'add') {
+                        const res  = await fetch(`${BASE_URL}/${endpoint}`);
+                        const data = await res.json();
+                        const maxId = data.length > 0
+                            ? Math.max(...data.map(r => parseInt(r[f.key]) || 0))
+                            : 0;
+                        autoVal = maxId + 1;
+                    }
+                    parts.push(`
+                        <div class="form-group">
+                            <label>${f.label}${mode === 'add' ? ' (otomatis)' : ''}</label>
+                            <input id="field-${f.key}" type="text" value="${autoVal}" disabled />
+                        </div>`);
+
+                } else if (f.type === 'dropdown' && f.source) {
+                    const res        = await fetch(`${BASE_URL}/${f.source}`);
+                    const data       = await res.json();
+                    const sourcePkKey = tableFields[f.source].find(sf => sf.pk).key;
+                    const options    = data.map(item => {
+                        const val      = item[sourcePkKey];
+                        const selected = String(currentVal) === String(val) ? 'selected' : '';
+                        return `<option value="${val}" ${selected}>${f.displayFn(item)}</option>`;
+                    }).join('');
+                    parts.push(`
+                        <div class="form-group">
+                            <label for="field-${f.key}">${f.label}</label>
+                            <select id="field-${f.key}">
+                                <option value="">-- Pilih ${f.label} --</option>
+                                ${options}
+                            </select>
+                        </div>`);
+
+                } else if (f.type === 'dropdown' && f.options) {
+                    const options = f.options.map(opt => {
+                        const selected = String(currentVal) === String(opt) ? 'selected' : '';
+                        return `<option value="${opt}" ${selected}>${opt}</option>`;
+                    }).join('');
+                    parts.push(`
+                        <div class="form-group">
+                            <label for="field-${f.key}">${f.label}</label>
+                            <select id="field-${f.key}">
+                                <option value="">-- Pilih ${f.label} --</option>
+                                ${options}
+                            </select>
+                        </div>`);
+
+                } else {
+                    const disabled = (mode === 'edit' && f.pk) ? 'disabled' : '';
+                    const val      = String(currentVal).replace(/"/g, '&quot;');
+                    parts.push(`
+                        <div class="form-group">
+                            <label for="field-${f.key}">${f.label}</label>
+                            <input id="field-${f.key}" type="text"
+                                value="${val}" placeholder="${f.label}" ${disabled} />
+                        </div>`);
+                }
+            }
+            return parts.join('');
+        }
+
+        // ─── MODAL OPEN/CLOSE ───
+        async function openAdd(endpoint) {
+            modalEndpoint = endpoint; modalMode = 'add'; modalPkValue = null;
+            document.getElementById('modal-title').textContent = 'Tambah Data';
+            document.getElementById('modal-body').innerHTML = '<p style="color:var(--text-secondary);font-size:0.85rem;text-align:center;padding:12px 0">Memuat form...</p>';
+            document.getElementById('modal-overlay').classList.add('open');
+            document.getElementById('modal-body').innerHTML = await buildFormHTML(endpoint, null, 'add');
+        }
+
+        async function openEdit(endpoint, pkValue) {
+            modalEndpoint = endpoint; modalMode = 'edit'; modalPkValue = pkValue;
+            document.getElementById('modal-title').textContent = 'Edit Data';
+            document.getElementById('modal-body').innerHTML = '<p style="color:var(--text-secondary);font-size:0.85rem;text-align:center;padding:12px 0">Memuat form...</p>';
+            document.getElementById('modal-overlay').classList.add('open');
+            const res    = await fetch(`${BASE_URL}/${endpoint}`);
+            const data   = await res.json();
+            const pkKey  = tableFields[endpoint].find(f => f.pk).key;
+            const rowData = data.find(r => String(r[pkKey]) === String(pkValue));
+            document.getElementById('modal-body').innerHTML = await buildFormHTML(endpoint, rowData, 'edit');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-overlay').classList.remove('open');
+        }
+
+        // ─── SUBMIT ───
+        async function submitForm() {
+            const fields  = tableFields[modalEndpoint];
+            const body    = {};
+            let   isValid = true;
+
+            fields.forEach(f => {
+                const el  = document.getElementById(`field-${f.key}`);
+                if (!el) return;
+                const val = el.value.trim ? el.value.trim() : el.value;
+                body[f.key] = val;
+                if (!el.disabled && !val) isValid = false;
+            });
+
+            if (!isValid) { showToast('Semua field harus diisi.', 'error'); return; }
+
+            try {
+                const url    = modalMode === 'add'
+                    ? `${BASE_URL}/${modalEndpoint}`
+                    : `${BASE_URL}/${modalEndpoint}/${modalPkValue}`;
+                const method = modalMode === 'add' ? 'POST' : 'PUT';
+
+                const res = await fetch(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+
+                if (!res.ok) {
+                    const errData = await res.json().catch(() => ({ error: res.statusText }));
+                    throw new Error(errData.error || res.statusText);
+                }
+
+                closeModal();
+                showToast(modalMode === 'add' ? 'Data berhasil ditambahkan.' : 'Data berhasil diperbarui.', 'success');
+                loadData(modalEndpoint);
+            } catch (err) {
+                showToast('Terjadi kesalahan: ' + err.message, 'error');
+            }
+        }
+
+        // ─── DELETE ───
+        let pendingDelete = null;
+
+        function confirmDelete(endpoint, pkValue) {
+            pendingDelete = { endpoint, pkValue };
+            document.getElementById('confirm-overlay').classList.add('open');
+        }
+
+        function closeConfirm() {
+            pendingDelete = null;
+            document.getElementById('confirm-overlay').classList.remove('open');
+        }
+
+        document.getElementById('btn-confirm-delete').addEventListener('click', async () => {
+            if (!pendingDelete) return;
+            const { endpoint, pkValue } = pendingDelete;
+            closeConfirm();
+
+            try {
+                const res = await fetch(`${BASE_URL}/${endpoint}/${pkValue}`, { method: 'DELETE' });
+
+                if (res.status === 409) {
+                    // FK constraint violation — tampilkan dialog khusus
+                    const errData = await res.json();
+                    showFKDialog(errData.column);
+                    return;
+                }
+
+                if (!res.ok) {
+                    const errData = await res.json().catch(() => ({ error: res.statusText }));
+                    throw new Error(errData.error || res.statusText);
+                }
+
+                showToast('Data berhasil dihapus.', 'success');
+                loadData(endpoint);
+            } catch (err) {
+                showToast('Gagal menghapus: ' + err.message, 'error');
+            }
+        });
+
+        // ─── FK ERROR DIALOG ───
+        function showFKDialog(column) {
+            const content = fkDialogContent[column] || fkDialogContent.default;
+            document.getElementById('fk-message').textContent   = content.message;
+            document.getElementById('fk-hint-text').textContent = content.hint;
+            document.getElementById('fk-overlay').classList.add('open');
+        }
+
+        function closeFKDialog() {
+            document.getElementById('fk-overlay').classList.remove('open');
+        }
+
+        document.getElementById('fk-overlay').addEventListener('click', e => {
+            if (e.target === e.currentTarget) closeFKDialog();
+        });
+
+        // ─── TOAST ───
+        let toastTimer = null;
+        function showToast(msg, type = 'success') {
+            const el = document.getElementById('toast');
+            el.textContent = msg;
+            el.className   = `show ${type}`;
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => { el.className = ''; }, 3200);
+        }
+
+        document.getElementById('modal-overlay').addEventListener('click', e => {
+            if (e.target === e.currentTarget) closeModal();
+        });
+        document.getElementById('confirm-overlay').addEventListener('click', e => {
+            if (e.target === e.currentTarget) closeConfirm();
+        });
+
+        // ─── INIT ───
+        loadData('mahasiswa');
+        loadData('dosen');
+        loadData('matakuliah');
+        loadData('perkuliahan');
     </script>
 
 </body>
